@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "974547297749",
+    "firebase_url": "https://clinic-app-d95a7.firebaseio.com",
+    "project_id": "clinic-app-d95a7",
+    "storage_bucket": "clinic-app-d95a7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:974547297749:android:4b6dcdddd13c986d97c95c",
+        "android_client_info": {
+          "package_name": "com.cut.campusclinic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "974547297749-2p34ta8qjtuicl41rado5acq2bssimg7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cut.campusclinic",
+            "certificate_hash": "c0c3d309661ea35d392902216c5b2c15530c6a52"
+          }
+        },
+        {
+          "client_id": "974547297749-6tfqq6fv3r8getqhotgmpu7msf7bss0l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4JOOllbMp60o4qmACy-jdLfHDZe1otF0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "974547297749-6tfqq6fv3r8getqhotgmpu7msf7bss0l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
