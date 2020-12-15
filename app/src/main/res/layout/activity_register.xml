@@ -29,6 +29,11 @@
         android:layout_height="wrap_content"
         android:hint="Enter user email"
         android:id="@+id/ed_email"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter user contact number"
+        android:id="@+id/ed_contactNumber"/>
 
     <RadioGroup
         android:layout_width="match_parent"

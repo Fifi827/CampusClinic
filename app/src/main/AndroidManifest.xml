@@ -11,7 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AdminHome"></activity>
+        <activity android:name=".ApproveAppointment"></activity>
+        <activity android:name=".DoctorAppointment" />
+        <activity android:name=".DoctorHome" />
+        <activity android:name=".AppointmentChoice" />
+        <activity android:name=".AppointmentList" />
+        <activity android:name=".ConsultActivity" />
+        <activity android:name=".AppointmentActivity" />
+        <activity android:name=".PatientHome" />
+        <activity android:name=".AdminHome" />
         <activity android:name=".Register" />
         <activity android:name=".MainActivity">
             <intent-filter>

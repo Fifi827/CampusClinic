@@ -7,6 +7,8 @@ public class User
     private String userLastName;
     private String userRole;
     private String email;
+    private String contactNumber;
+
 
     public String getUserID() {
         return userID;
@@ -46,5 +48,13 @@ public class User
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getContactNumber() {
+        return contactNumber;
+    }
+
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
     }
 }

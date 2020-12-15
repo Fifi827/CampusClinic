@@ -19,7 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Register extends AppCompatActivity {
-    EditText ed_regFirstName, ed_regLastName, ed_regEmail, ed_regPassword, ed_regConfirmPassword;
+    EditText ed_regFirstName, ed_regLastName, ed_regEmail, ed_contactNumber, ed_regPassword, ed_regConfirmPassword;
     RadioButton rb_regAdmin, rb_regDoc, rb_regPat;
     Button btn_regSubmit;
 
@@ -38,6 +38,7 @@ public class Register extends AppCompatActivity {
         ed_regEmail = findViewById(R.id.ed_email);
         ed_regPassword = findViewById(R.id.ed_regPassword);
         ed_regConfirmPassword = findViewById(R.id.ed_regConfirmPassword);
+        ed_contactNumber = findViewById(R.id.ed_contactNumber);
 
         rb_regAdmin = findViewById(R.id.rb_regAdmin);
         rb_regDoc = findViewById(R.id.rb_regDoctor);
@@ -55,7 +56,8 @@ public class Register extends AppCompatActivity {
                 String password = ed_regPassword.getText().toString().trim();
                 String passwordConfirm = ed_regConfirmPassword.getText().toString();
 
-                if(firstname.isEmpty() || lastname.isEmpty() || email.isEmpty() || password.isEmpty() || passwordConfirm.isEmpty())
+                if(firstname.isEmpty() || lastname.isEmpty() || email.isEmpty() || password.isEmpty() || passwordConfirm.isEmpty() ||
+                        ed_contactNumber.getText().toString().trim().isEmpty())
                 {
                     Toast.makeText(Register.this, "Some fields missing text", Toast.LENGTH_SHORT).show();
                 }
@@ -81,6 +83,7 @@ public class Register extends AppCompatActivity {
                                 user.setUserLastName(lastname);
                                 user.setEmail(email);
                                 user.setUserID(userId);
+                                user.setContactNumber(ed_contactNumber.getText().toString().trim());
 
                                 if(rb_regAdmin.isChecked())
                                 {
