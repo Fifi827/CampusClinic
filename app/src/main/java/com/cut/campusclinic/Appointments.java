@@ -8,6 +8,8 @@ public class Appointments {
     private boolean confirm;
     private String date;
     private String created;
+    private String time;
+    private String pushKey;
 
     public String getNames() {
         return names;
@@ -63,5 +65,21 @@ public class Appointments {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getPushKey() {
+        return pushKey;
+    }
+
+    public void setPushKey(String pushKey) {
+        this.pushKey = pushKey;
     }
 }

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/colorMainBackground"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/customFormSpinnerItemLayout"
+        android:orientation="horizontal"
+        android:layout_toLeftOf="@+id/custom_spinnerIcon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:id="@+id/ivSpinnerLayout"
+            android:src="@drawable/ic_account"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvSpinnerLayout"
+            android:fontFamily="@font/transformers"
+            android:text="Lucky"
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:textColor="@android:color/holo_blue_bright"/>
+    </LinearLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/custom_spinnerIcon"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:padding="10dp"
+        android:src="@drawable/ic_drop_down"/>
+</RelativeLayout>

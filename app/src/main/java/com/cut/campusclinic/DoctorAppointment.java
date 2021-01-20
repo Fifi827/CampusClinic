@@ -29,7 +29,8 @@ public class DoctorAppointment extends AppCompatActivity {
         btn_approved.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // Intent intent = new Intent(DoctorAppointment.this,)
+                Intent intent = new Intent(DoctorAppointment.this, DrApprovedAppointments.class);
+                startActivity(intent);
             }
         });
         btn_pending.setOnClickListener(new View.OnClickListener() {

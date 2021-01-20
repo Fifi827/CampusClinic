@@ -36,7 +36,7 @@ public class AppointmentActivity extends AppCompatActivity {
     Button btn_submit;
     EditText ed_datePicker, ed_names, ed_email, ed_contact;
     Spinner sp_doctors;
-    List<User> userList;
+    List<Doctor> userList;
     Calendar myCalender;
     DatePickerDialog.OnDateSetListener date;
 
@@ -61,10 +61,10 @@ public class AppointmentActivity extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
                 myCalender.set(Calendar.YEAR,i );
-                myCalender.set(Calendar.MONTH,i1 );
+                myCalender.set(Calendar.MONTH,i1);
                 myCalender.set(Calendar.DAY_OF_MONTH,i2 );
 
-                ed_datePicker.setText(myCalender.get(Calendar.DAY_OF_MONTH) + "/"+ myCalender.get(Calendar.MONTH) + "/"+
+                ed_datePicker.setText(myCalender.get(Calendar.DAY_OF_MONTH) + "/"+ (myCalender.get(Calendar.MONTH) + 1) + "/"+
                         myCalender.get(Calendar.YEAR));
             }
         };
@@ -130,12 +130,13 @@ public class AppointmentActivity extends AppCompatActivity {
                 List<String> drNames = new ArrayList<>();
                 for(DataSnapshot snapshot1 : snapshot.getChildren())
                 {
-                    User user = snapshot1.getValue(User.class);
-                    assert user != null;
-                    if(user.getUserRole().equals("Doctor"))
+                    Doctor doc = snapshot1.getValue(Doctor.class);
+                  //  User user = snapshot1.getValue(User.class);
+                    assert doc != null;
+                    if(doc.getUserRole().equals("Doctor"))
                     {
-                        userList.add(user);
-                        drNames.add(user.getUserFirstName() + " " + user.getUserLastName());
+                        userList.add(doc);
+                        drNames.add(doc.getUserFirstName() + " " + doc.getUserLastName());
                     }
                 }
                 ArrayAdapter<String> spAdapter = new ArrayAdapter<>(AppointmentActivity.this,
@@ -156,7 +157,8 @@ public class AppointmentActivity extends AppCompatActivity {
     {
         FirebaseUser firebaseUser = auth.getCurrentUser();
         String userId = firebaseUser.getUid();
-        appointmentRef = FirebaseDatabase.getInstance().getReference("Appointments").push();
+        String key = FirebaseDatabase.getInstance().getReference("Appointments").push().getKey();
+        appointmentRef = FirebaseDatabase.getInstance().getReference("Appointments").child(key);
 
         Appointments appointments = new Appointments();
         appointments.setNames(ed_names.getText().toString());
@@ -165,6 +167,8 @@ public class AppointmentActivity extends AppCompatActivity {
         appointments.setEmail(ed_email.getText().toString());
         appointments.setConfirm(false);
         appointments.setPatientId(userId);
+        appointments.setTime("n/a");
+        appointments.setPushKey(key);
 
         long tsLong = System.currentTimeMillis();
         String timestamp = String.valueOf(tsLong);
@@ -175,6 +179,7 @@ public class AppointmentActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful())
                 {
+
                     Toast.makeText(AppointmentActivity.this, "Appointment made successfully, please wait for the Dr to confirm!!!", Toast.LENGTH_SHORT).show();
                     AppointmentActivity.this.finish();
                 }

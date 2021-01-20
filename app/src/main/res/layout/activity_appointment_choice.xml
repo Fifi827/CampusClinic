@@ -11,15 +11,43 @@
         android:layout_height="wrap_content"
         android:text="Appointments"
         android:textSize="40sp"
+        android:fontFamily="@font/transformers"
         android:layout_gravity="center"/>
-    <Button
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Appointments made"
-        android:id="@+id/btn_appMade"/>
-    <Button
+        android:layout_margin="10dp"
+        android:layout_height="80dp"
+        android:id="@+id/btn_appMake"
+        android:padding="30dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/ic_doctor" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1.5"
+                android:gravity="center"
+                android:fontFamily="@font/transformers"
+                android:layout_height="match_parent"
+                android:text="Make Appointment"/>
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_next"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="make appointment"
-        android:id="@+id/btn_appMake"/>
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:id="@+id/pat_appList"/>
 </LinearLayout>

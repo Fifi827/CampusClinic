@@ -1,3 +1,55 @@
 <resources>
     <string name="app_name">Campus Clinic</string>
+    <string name="qaulification_hint">If you have multiple qualifications, please select from the list and press add</string>
+    <string-array name="times">
+        <item>"09:00-09:30"</item>
+        <item>"09:30-10:00"</item>
+        <item>"10:00-10:30"</item>
+        <item>"10:30-11:00"</item>
+        <item>"11:00-11:30"</item>
+        <item>"11:30-12:00"</item>
+        <item>"12:00-12:30"</item>
+        <item>"12:30-13:00"</item>
+        <item>"14:00-14:30"</item>
+        <item>"14:30-15:00"</item>
+        <item>"15:00-15:30"</item>
+        <item>"15:30-16:00"</item>
+        <item>"16:00-16:30"</item>
+    </string-array>
+    <string-array name="degrees">
+        <item>"Qualifications"</item>
+        <item>"MBBS"</item>
+        <item>"BMBS"</item>
+        <item>"MBChB"</item>
+        <item>"MD"</item>
+        <item>"PhD"</item>
+        <item>"DPhil"</item>
+        <item>"MSc"</item>
+        <item>"DCM"</item>
+        <item>"DClinSurg"</item>
+    </string-array>
+    <string-array name="medaid">
+        <item>"Have Medical aid?"</item>
+        <item>"Yes"</item>
+        <item>"No"</item>
+    </string-array>
+    <string-array name="roles">
+        <item>"Select Role"</item>
+        <item>"Doctor"</item>
+        <item>"Patient"</item>
+        <item>"Admin"</item>
+    </string-array>
+    <string-array name="specialty">
+        <item>"Specialty"</item>
+        <item>"Allergists/Immunologists"</item>
+        <item>"Anesthesiologists"</item>
+        <item>"Cardiologists"</item>
+        <item>"Neurologists"</item>
+        <item>"Dermatologists"</item>
+        <item>"Endocrinologists"</item>
+        <item>"Gastroenterologists"</item>
+        <item>"Geriatric Medicine"</item>
+        <item>"Family Physicians"</item>
+        <item>"Oncologists"</item>
+    </string-array>
 </resources>

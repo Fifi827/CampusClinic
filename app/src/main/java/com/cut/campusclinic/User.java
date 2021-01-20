@@ -8,8 +8,16 @@ public class User
     private String userRole;
     private String email;
     private String contactNumber;
+    private String age;
+    private String photoUrl;
 
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
 
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
+    }
     public String getUserID() {
         return userID;
     }
@@ -56,5 +64,13 @@ public class User
 
     public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
     }
 }

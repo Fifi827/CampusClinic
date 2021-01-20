@@ -2,19 +2,39 @@ package com.cut.campusclinic;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class PatientHome extends AppCompatActivity {
-    Button btn_Appointment, btn_Records, btn_updateDetails, btn_consult;
+
+    CardView btn_Appointment,btn_updateDetails,btn_Records, btn_consult;
+    TextView tvPatHomeNames,tvPatHomeRole,tvPatHomeAppointements;
+    Query dbRef;
+    CircleImageView iv_userProfile;
+    List<Appointments> appointmentsList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +45,26 @@ public class PatientHome extends AppCompatActivity {
         btn_Records = findViewById(R.id.btn_patMedicalHistory);
         btn_updateDetails = findViewById(R.id.btn_petPersonalDetails);
         btn_consult = findViewById(R.id.btn_patConsult);
+        iv_userProfile = findViewById(R.id.iv_userProfile);
+        appointmentsList = new ArrayList<>();
+
+        tvPatHomeNames = findViewById(R.id.tvPatHomeNames);
+        tvPatHomeRole = findViewById(R.id.tvPatHomeRole);
+        tvPatHomeNames.setText(AppClass.names);
+        tvPatHomeRole.setText(AppClass.role);
+        if(!AppClass.photoUrl.equals("default"))
+            Picasso.with(this).load(AppClass.photoUrl).into(iv_userProfile);
 
         btn_Appointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(PatientHome.this, AppointmentChoice.class));
+            }
+        });
+        btn_updateDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(PatientHome.this,  UpdateProfile.class));
             }
         });
     }
@@ -52,5 +87,12 @@ public class PatientHome extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(!AppClass.photoUrl.equals("default"))
+            Picasso.with(this).load(AppClass.photoUrl).into(iv_userProfile);
     }
 }

@@ -5,79 +5,182 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorMainBackground"
     tools:context=".Register">
 
-    <TextView
+    <ProgressBar
+        android:id="@+id/register_progress"
+        style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register"
-        android:layout_gravity="center"
-        android:textSize="40sp"
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter user firstname"
-        android:id="@+id/ed_regName"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter user lastname"
-        android:id="@+id/ed_regLastName"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter user email"
-        android:id="@+id/ed_email"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter user contact number"
-        android:id="@+id/ed_contactNumber"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="200dp"
+        android:visibility="gone" />
 
-    <RadioGroup
+    <TextView
+        android:id="@+id/tvLoad_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginTop="25dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_horizontal"
+        android:text="Loading...please wait..."
+        android:textColor="@android:color/holo_blue_bright"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/register_form">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="150dp"
+            android:src="@drawable/ic_document"
+            android:layout_gravity="center"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Role:"
-            android:textSize="25sp"
-            android:layout_marginLeft="7dp"
-            android:layout_marginRight="7dp"/>
-        <RadioButton
-            android:layout_width="wrap_content"
+            android:text="Register"
+            android:fontFamily="@font/transformers"
+            android:textColor="@android:color/holo_blue_bright"
+            android:layout_gravity="center"
+            android:textSize="20sp"/>
+        <EditText
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Admin"
-            android:id="@+id/rb_regAdmin"/>
-        <RadioButton
-            android:layout_width="wrap_content"
+            android:hint="First name"
+            android:padding="8dp"
+            android:fontFamily="@font/transformers"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/cutsom_edittext"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textColorHint="@android:color/holo_blue_bright"
+            android:drawableLeft="@drawable/ic_outline_account"
+            android:drawablePadding="10dp"
+            android:id="@+id/ed_regName"/>
+        <EditText
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Doctor"
-            android:id="@+id/rb_regDoctor"/>
-        <RadioButton
-            android:layout_width="wrap_content"
+            android:hint="Last name"
+            android:padding="8dp"
+            android:fontFamily="@font/transformers"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/cutsom_edittext"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textColorHint="@android:color/holo_blue_bright"
+            android:drawableLeft="@drawable/ic_outline_account"
+            android:drawablePadding="10dp"
+            android:id="@+id/ed_regLastName"/>
+        <EditText
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Patient"
-            android:id="@+id/rb_regPatient"/>
+            android:hint="Enter email"
+            android:padding="8dp"
+            android:fontFamily="@font/transformers"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/cutsom_edittext"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textColorHint="@android:color/holo_blue_bright"
+            android:drawableLeft="@drawable/ic_outline_email"
+            android:drawablePadding="10dp"
+            android:id="@+id/ed_email"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:padding="8dp"
+            android:fontFamily="@font/transformers"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/cutsom_edittext"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textColorHint="@android:color/holo_blue_bright"
+            android:drawableLeft="@drawable/ic_outline_phone"
+            android:drawablePadding="10dp"
+            android:hint="contact number"
+            android:id="@+id/ed_contactNumber"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter user age"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:padding="8dp"
+            android:fontFamily="@font/transformers"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/cutsom_edittext"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textColorHint="@android:color/holo_blue_bright"
+            android:drawableLeft="@drawable/ic_outline_account"
+            android:drawablePadding="10dp"
+            android:inputType="number"
+            android:id="@+id/ed_age"/>
 
-    </RadioGroup>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Password"
-        android:id="@+id/ed_regPassword"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Confirm Password"
-        android:id="@+id/ed_regConfirmPassword"/>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:id="@+id/sp_register_role"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/spinner_background"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:padding="8dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/cutsom_edittext"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textColorHint="@android:color/holo_blue_bright"
+            android:drawableLeft="@drawable/ic_outline_lock"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/transformers"
+            android:inputType="textPassword"
+            android:id="@+id/ed_regPassword"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirm Password"
+            android:padding="8dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/transformers"
+            android:background="@drawable/cutsom_edittext"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textColorHint="@android:color/holo_blue_bright"
+            android:drawableLeft="@drawable/ic_outline_lock"
+            android:drawablePadding="10dp"
+            android:inputType="textPassword"
+            android:id="@+id/ed_regConfirmPassword"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="submit"
-        android:id="@+id/btn_regSubmit"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_shape"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/transformers"
+            android:textColor="@android:color/holo_blue_bright"
+            android:text="submit"
+            android:id="@+id/btn_regSubmit"/>
+
+
+    </LinearLayout>
+
 
 </LinearLayout>
